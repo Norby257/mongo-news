@@ -1,48 +1,59 @@
-//  node dependencies 
-var express = require("express");
-var bodyParser = require("body-parser");
-var path = require("path");
-var cheerio = require("cheerio");
-var mongoose = require("mongoose");
-var request = require("request");
+//  node dependencies
+var express = require("express")
+var bodyParser = require("body-parser")
+var cheerio = require("cheerio")
+var mongoose = require("mongoose")
+var request = require("request")
 
-var app = express();
+//  instantiate the app 
+var app = express()
 
+//  facilitating serving static data 
 
-//  Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(path.join(__dirname, "public")));
+//  may need to update this later on
+app.use(express.static("public"));
 
-//  this is the body parser 
+//  facilitating data parsing 
 app.use(
-    bodyParser.urlencoded({
-        extended: true
-    })
+  bodyParser.urlencoded({
+    extended: true
+  })
 )
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 
+//  setting handlebars
 
-//  setting handlebars 
-
-var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars")
 
 app.engine(
-    "handlebars",
-    exphbs({
-        defaultLayout: "main"
-    })
+  "handlebars",
+  exphbs({
+    defaultLayout: "main"
+  })
 )
-
 
 app.set("view engine", "handlebars")
 
-//  routes 
+
+//  Database configuration - leaving these as comments for now 
+// var databaseURL = "mongoNews";
+// var collections = ["news"];
+
+// var db = mongojs(databasURL, collections);
+
+//  log errors so we know what's going on with errors 
+
+// db.on("error", function(err){
+//     console.log("Database Error:", error)
+// });
+
+//  requiring routes here 
 
 //  modify this line to handle the mongoDB heroku config
-var PORT = 3000;
+var PORT = 3000
 
-
-//  include mongoDB syncing here 
+//  include mongoDB syncing here
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-});
+  console.log("App listening on PORT " + PORT)
+})

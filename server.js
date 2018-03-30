@@ -5,6 +5,9 @@ var cheerio = require("cheerio")
 var mongoose = require("mongoose")
 var request = require("request")
 
+//  model dependencies 
+
+var article = require("./models/articles");
 //  instantiate the app 
 var app = express()
 

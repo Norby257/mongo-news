@@ -7,7 +7,7 @@ console.log("we are linked");
 
 //  do the web scraping thing 
 
-//  put somewhere - similar to the class activities  - they store in empty array 
+//  put somewhere - similar to the class activities  - then store in empty array 
 
 //  can prolly pass the array to DB? 
 

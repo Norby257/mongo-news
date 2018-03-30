@@ -54,6 +54,29 @@ app.set("view engine", "handlebars")
 //  requiring routes here 
 
 //  modify this line to handle the mongoDB heroku config
+
+//  scraping data - will move this into a diff file
+//  running really slow - will try a few diffrent things to fix this 
+//  select something diff 
+app.get("/scrape", function(req, res){
+  app.get("http://www.aljazeera.net/news/scienceandtechnology", function(err, response, html){
+    //  load html body from request into cheerio 
+    var $ = cheerio.load(html);
+    $("a.title").each(function(i, element){
+      console.log(element);
+      // var link = $(element).children("a").attr("href")
+    })
+
+  })
+
+
+
+})
+
+
+ // repeting elements:
+ // a.title 
+ // p 
 var PORT = 3000
 
 //  include mongoDB syncing here

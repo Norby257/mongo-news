@@ -58,11 +58,14 @@ app.set("view engine", "handlebars")
 //  scraping data - will move this into a diff file
 //  running really slow - will try a few diffrent things to fix this 
 //  select something diff 
+//  so lets do wired security bc thats way more interesting
+//  and I can just pull the h2
+//  the byline a.byline-component__link 
 app.get("/scrape", function(req, res){
-  app.get("http://www.aljazeera.net/news/scienceandtechnology", function(err, response, html){
+  app.get("https://www.wired.com/category/security/", function(err, response, html){
     //  load html body from request into cheerio 
     var $ = cheerio.load(html);
-    $("a.title").each(function(i, element){
+    $("h2").each(function(i, element){
       console.log(element);
       // var link = $(element).children("a").attr("href")
     })

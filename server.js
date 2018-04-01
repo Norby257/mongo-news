@@ -1,16 +1,26 @@
 //  node dependencies
 var express = require("express")
 var bodyParser = require("body-parser")
-var cheerio = require("cheerio")
 var mongoose = require("mongoose")
 var request = require("request")
+var logger = require("morgan")
+
+//  dependencies for web scraping 
+var axios = require("axios"); 
+var cheerio = require("cheerio")
+
 
 //  model dependencies 
 var db = require("./models");
-console.log(db);
+// console.log(db);
 
 //  instantiate the app 
 var app = express()
+
+
+// using morgan logger 
+
+app.use(logger("dev"));
 
 //  facilitating serving static data 
 //  may need to update this later on
@@ -47,23 +57,37 @@ mongoose.connect(MONGODB_URI, {
   // useMongoClient: true
 });
 
+// A GET REOUTE TO SCRAPE THAT WEBSITE 
+
+app.get("/scrape", function(req, res){
+  axios.get("url here")
+  //  get the html using axios
+
+  //  saving in empty object 
+
+  //  load into cheerio 
+
+  //  elements we are selecting 
+
+  //  databse function - creating a new row in DB using the result object do 
+
+  //  log it to console 
+
+  //  catch any errors that happen 
+
+  //  if it's sucessfull, send a message so client is not waiting 
+})
+
+
+
+
+
+
 //requiring routes
-var routes = require("./routes/api-routes/api-routes")
-app.use("/all", routes)
-app.use("/save", routes)
-app.use("/scrape", routes)
-app.use("/delete", routes)
-
-
-
-
-//  log errors so we know what's going on with errors 
-
-// db.on("error", function(err){
-//     console.log("Database Error:", error)
-// });
-
-
+// var routes = require("./routes/api-routes/api-routes")
+// app.use("/all", routes)
+// app.use("/save", routes)
+// app.use("/delete", routes)
 
 //  modify this line to handle the mongoDB heroku config
 

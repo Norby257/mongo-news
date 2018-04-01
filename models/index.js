@@ -2,8 +2,8 @@
 //  so that in server file i just require this one
 
 module.exports = {
-    Article: require("./Article"),
-    Comment: require("./Comment")
+    Article: require("./articles"),
+    Comment: require("./comments")
 };
 
 console.log("This is BOTH article and comment");

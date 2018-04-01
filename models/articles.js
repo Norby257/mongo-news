@@ -3,7 +3,7 @@
 var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
-var articleSchema = newSchema({
+var articleSchema = new Schema({
   headline: {
     type: String,
     unique: true
@@ -12,17 +12,16 @@ var articleSchema = newSchema({
   summary: String,
   url: String,
 
-  //  setting up the reference to comments 
+  //  setting up the reference to comments
   comments: [
     {
       type: Schema.Types.ObjectId,
       ref: "Comment"
     }
   ]
-
 })
 var Article = mongoose.model("Article", articleSchema)
 console.log("this is the article --------------")
 //  export
 
-module.exports = Article;
+module.exports = Article

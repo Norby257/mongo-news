@@ -50,9 +50,9 @@ app.set("view engine", "handlebars")
 //     console.log("Database Error:", error)
 // });
 
-//  requiring routes here 
-require("./routes/api-routes/api-routes.js")(app);
-require("./routes/html-routes/html-route.js")(app)
+// //  requiring routes here 
+// require("./routes/api-routes/api-routes.js")(app);
+// require("./routes/html-routes/html-route.js")(app)
 
 //  modify this line to handle the mongoDB heroku config
 

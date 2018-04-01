@@ -1,6 +1,7 @@
 //  get route for scraping the web - re watch the video 
 
 //  route for getting articles from DB
+
 app.get("/all", function(req, res) {
   db.news.find({}, function(error, data) {
     //  log any errors for debugging

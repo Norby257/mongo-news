@@ -1,8 +1,11 @@
-//  get route for scraping the web - re watch the video 
+//  dependencies
+var express = require("express")
+
+var router = express.Router()
 
 //  route for getting articles from DB
 
-app.get("/all", function(req, res) {
+router.get("/all", function(req, res) {
   db.news.find({}, function(error, data) {
     //  log any errors for debugging
     if (error) {
@@ -17,7 +20,7 @@ app.get("/all", function(req, res) {
 
 //  post an article to the database
 
-app.post("/save", function(req, res) {
+router.post("/save", function(req, res) {
   //  logging req.body for debugging purposes
   console.log(req.body)
   //  insert the article into the articles collection
@@ -38,7 +41,7 @@ app.post("/save", function(req, res) {
 
 //  route for deleting saved articles
 
-app.get("/delete/:id", function(req, res) {
+router.get("/delete/:id", function(req, res) {
   db.news.remove(
     {
       _id: mongojs.ObjectID(req.params.id)
@@ -63,7 +66,7 @@ app.get("/delete/:id", function(req, res) {
 //  headline, summary, URL 
 //  let's also try label and time stamp 
  
-app.get("/scrape", function(req, res){
+router.get("/scrape", function(req, res){
   request("https://www.aljazeera.com/news/", function(err, response, html){
       //  load html body from request into cheerio 
       var $ = cheerio.load(html);
@@ -92,12 +95,11 @@ app.get("/scrape", function(req, res){
       })
   
     })
+    console.log("API routes");
+
+    module.exports = router;
   
   
   
   // })
   
-  
-   // repeting elements:
-   // a.title 
-   // p 

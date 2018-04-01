@@ -38,6 +38,14 @@ app.engine(
 app.set("view engine", "handlebars")
 
 
+//requiring routes
+var routes = require("./routes/api-routes/api-routes")
+app.use("/all", routes)
+app.use("/save", routes)
+app.use("/scrape", routes)
+app.use("/delete", routes)
+
+
 //  Database configuration - leaving these as comments for now 
 // var databaseURL = "mongoNews";
 // var collections = ["news"];

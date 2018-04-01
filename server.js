@@ -60,14 +60,25 @@ mongoose.connect(MONGODB_URI, {
 // A GET REOUTE TO SCRAPE THAT WEBSITE 
 
 app.get("/scrape", function(req, res){
-  axios.get("url here")
-  //  get the html using axios
+  request("http://www.chicagotribune.com/",function(error,response, html){
+      //  load into cheerio 
+    var $ = cheerio.load(html);
 
-  //  saving in empty object 
+    //  get h2 within the card-compenent_description 
+    $(".trb_outfit_relatedListTitle_a").each(function(i, element){
+        // console.log(element);
+        //  saving in empty object 
+        var result = {};
+      var title = $(element).text();
+      //  so fix the link part wooo! 
+      var link = $(element).attr("href");
 
-  //  load into cheerio 
-
-  //  elements we are selecting 
+      var summary = $(element).children("p").text();
+      
+      //  the console.logging are for testing purposes 
+      console.log(title);
+      console.log(link);
+       
 
   //  databse function - creating a new row in DB using the result object do 
 
@@ -76,6 +87,14 @@ app.get("/scrape", function(req, res){
   //  catch any errors that happen 
 
   //  if it's sucessfull, send a message so client is not waiting 
+
+    })
+  
+
+
+  })
+
+  
 })
 
 

@@ -80,21 +80,29 @@ app.get("/scrape", function(req, res){
       console.log(link);
        
 
-  //  databse function - creating a new row in DB using the result object do 
+  //  databse function - creating a new row in DB using the result object we had above 
+      db.Article.create({
+        title: title,
+        link: link,
+        summary: summary
+      },
+      function(err, inserted) {
+        if (err) {
+            //  log it to console 
+          console.log(err);
+        } else {
+            //  log inserted data 
+            console.log(inserted);
 
-  //  log it to console 
-
-  //  catch any errors that happen 
-
-  //  if it's sucessfull, send a message so client is not waiting 
+        }
+      }
+    )
 
     })
-  
-
-
   })
+      //  if it's sucessfull, send a message so client is not waiting 
+      res.send("Scrape complete!");
 
-  
 })
 
 

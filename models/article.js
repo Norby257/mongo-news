@@ -4,9 +4,9 @@ var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var articleSchema = new Schema({
-  headline: {
+  title: {
     type: String,
-    unique: true,
+    // unique: true,
     required: true
   },
 
@@ -16,7 +16,6 @@ var articleSchema = new Schema({
   },
 
   summary: String,
-  url: String,
 
   //  setting up the reference to comments
 comment: {

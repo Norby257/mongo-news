@@ -9,6 +9,5 @@ var commentSchema = new Schema({
 
 var Comment = mongoose.model("Comment", commentSchema);
 console.log("This is the comment ---*****");
-
 module.exports = Comment;
 

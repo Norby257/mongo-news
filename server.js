@@ -7,6 +7,7 @@ var request = require("request")
 
 //  model dependencies 
 var db = require("./models");
+console.log(db);
 
 //  instantiate the app 
 var app = express()

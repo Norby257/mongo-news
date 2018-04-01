@@ -37,6 +37,14 @@ app.engine(
 
 app.set("view engine", "handlebars")
 
+// Connect to the Mongo DB
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  // useMongoClient: true
+});
 
 //requiring routes
 var routes = require("./routes/api-routes/api-routes")
@@ -46,11 +54,7 @@ app.use("/scrape", routes)
 app.use("/delete", routes)
 
 
-//  Database configuration - leaving these as comments for now 
-// var databaseURL = "mongoNews";
-// var collections = ["news"];
 
-// var db = mongojs(databasURL, collections);
 
 //  log errors so we know what's going on with errors 
 
@@ -58,13 +62,9 @@ app.use("/delete", routes)
 //     console.log("Database Error:", error)
 // });
 
-// //  requiring routes here 
-// require("./routes/api-routes/api-routes.js")(app);
-// require("./routes/html-routes/html-route.js")(app)
+
 
 //  modify this line to handle the mongoDB heroku config
-
-
 
 var PORT = 3000
 

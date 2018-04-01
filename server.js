@@ -56,25 +56,42 @@ app.set("view engine", "handlebars")
 //  modify this line to handle the mongoDB heroku config
 
 //  scraping data - will move this into a diff file
-//  running really slow - will try a few diffrent things to fix this 
-//  select something diff 
-//  so lets do wired security bc thats way more interesting
-//  and I can just pull the h2
-//  the byline a.byline-component__link 
+//  headline, summary, URL 
+//  let's also try label and time stamp 
+ 
 app.get("/scrape", function(req, res){
-  app.get("https://www.wired.com/category/security/", function(err, response, html){
+request("https://www.aljazeera.com/news/", function(err, response, html){
     //  load html body from request into cheerio 
     var $ = cheerio.load(html);
-    $("h2").each(function(i, element){
-      console.log(element);
+    var results = [];
+    //  keeping these as comments for examples while I test a few things out 
+    // $(".indepth-inner-title").each(function(i, element){
+    //   console.log($(element).text());
       // var link = $(element).children("a").attr("href")
+      //  headline  - .topics-sec-item-head"
+      //  so this "functions" - just have to determine relationship of elements 
+      $(".topics-sec-item-head").each(function(i, element) {
+        // console.log($(element).text());
+        var title = $(element).text();
+        console.log(title);        // var title = $(element).children("a").text();
+        var summary 
+        
+        // var link = $(element).children().attr("href");
+        // console.log(title);
+        // console.log(link);
+
+        //  summary 
+  
+
+      })
+
     })
 
   })
 
 
 
-})
+// })
 
 
  // repeting elements:

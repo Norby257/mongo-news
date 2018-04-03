@@ -106,10 +106,6 @@ app.get("/scrape", function(req, res){
 })
 
 
-
-
-
-
 //requiring routes
 // var routes = require("./routes/api-routes/api-routes")
 // app.use("/all", routes)

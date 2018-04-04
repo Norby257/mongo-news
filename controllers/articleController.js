@@ -1,3 +1,4 @@
+//  these are the callbacks to the routes 
 var db = require("../models");
 
 module.exports = {

@@ -6,7 +6,7 @@ var router = express.Router()
 var articleController = require("../controllers/articleController");
 
 //  route for getting ALL articles from DB
-router.get("/articles", productController.find);
+router.get("/articles", articleController.find);
 
 
 //  route for getting article by ID 

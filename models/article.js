@@ -6,7 +6,7 @@ var Schema = mongoose.Schema
 var articleSchema = new Schema({
   title: {
     type: String,
-    unique: true,
+    // unique: true,
     required: true
   },
 

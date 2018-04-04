@@ -17,6 +17,9 @@ var db = require("./models");
 //  instantiate the app 
 var app = express()
 
+var PORT = process.env.PORT || 3000;
+
+
 
 // using morgan logger 
 
@@ -114,7 +117,6 @@ app.get("/scrape", function(req, res){
 
 //  modify this line to handle the mongoDB heroku config
 
-var PORT = 3000
 
 //  include mongoDB syncing here
 app.listen(PORT, function() {

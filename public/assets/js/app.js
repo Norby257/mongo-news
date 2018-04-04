@@ -5,6 +5,7 @@ console.log("we are linked");
 $.getJSON("/articles", function(data){
     //  for each article avail
     for (var i = 0; i < data.length; i++) {
+        //  console.logging for testing purposes 
         //  display that info on the page 
         //  target - append things here  
         

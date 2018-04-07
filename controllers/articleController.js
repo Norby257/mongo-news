@@ -34,6 +34,5 @@ module.exports = {
         .then((dbArticle)=> res.json(dbArticle))
     }
 
-    //  and then we repeat this for comment
 }
 

@@ -17,18 +17,13 @@ var articleSchema = new Schema({
 
   summary: String,
 
-  //  setting up the reference to comments
-// comment: {
-//   type: Schema.Types.ObjectId,
-//   ref: "Comment"
-// }
-
-comments: [
+comment: [
   {
     type: Schema.Types.ObjectId,
     ref: "Comment"
   }
 ]
+
 })
 var Article = mongoose.model("Article", articleSchema)
 console.log("this is the article --------------")

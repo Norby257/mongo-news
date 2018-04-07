@@ -1,16 +1,19 @@
 console.log("we are linked");
 //  front end file 
 
-//  get articles 
-$.getJSON("/articles", function(data){
+//  get article title, link and display to page 
+$.getJSON("/articles/articles", function(data){
     //  for each article avail
     for (var i = 0; i < data.length; i++) {
-        //  console.logging for testing purposes 
+       
         //  display that info on the page 
-        //  target - append things here  
+        //  target - append things here   
+       
+        $("#articles").append("<p data-id=' " + data[i]._id + " '>" + data[i].title+ "<br />" + data[i].link + "</p>");
+        //  #comments 
         
     }
-})
+});
 
 
 //  click event for the p tag

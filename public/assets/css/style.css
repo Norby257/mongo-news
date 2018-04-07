@@ -4,12 +4,30 @@
  }
 
 p {
-    color: rgb(255,255,255);
+    color: rgb(0,0,0);
 }
 
 
 h1 {
     color: rgb(255,255,255);
+}
+
+
+/* articles target */ 
+
+#articles {
+    display: inline-block;
+    overflow: auto;
+    width: 60%;
+    height: 700px;
+
+}
+
+/* comments */ 
+
+#comments {
+   float: right;
+   width: 30%
 }
 
 /* footer */ 

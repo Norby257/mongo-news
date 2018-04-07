@@ -14,7 +14,9 @@ module.exports = {
   },
     //  find one 
     findOne: function(req, res) {
-        db.Article.findOne({_id: req.params.id}).then(function(dbArticle){
+        db.Article.findOne({_id: req.params.id})
+        .populate("Comment")
+        then(function(dbArticle){
             res.json(dbArticle);
         })
     },

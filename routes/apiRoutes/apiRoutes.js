@@ -3,100 +3,38 @@ var express = require("express")
 
 var router = express.Router()
 
-var articleController = require("../../controllers/articleController");
+var articleController = require("../../controllers/articleController")
 
 //  route for getting ALL articles from DB
-router.get("/articles", articleController.find);
+router.get("/articles/", articleController.findAll)
 
+//  route for getting article by ID
+router.get("/:id", articleController.findOne)
 
-//  route for getting article by ID 
+//  post article to DB
+router.post("/save", articleController.create)
 
-router.get("/:id", articleController.findOne);
+//  delete an article from the DB
+router.delete("/:id", articleController.delete)
 
-//  post article to DB 
-router.post("/save", articleController.create);
+//  will remove comments later after the above have been tested
 
-
-//  delete an article from the DB 
-router.delete("/:id", articleController.delete);
-//  will remove omments later after the above have been tested 
-// app.get("/articles", function(req, res){
-//   db.Article.find({})
-//   .then(function(dbArticle){
-//     //  if found, send back 
-//     res.json(dbArticle);
-//   })
-//   .catch(function(err){
-//     res.json(err);
-//   })
-// })
-
-// router.get("/articlles", ar)
-
-//  Select an article by id and populate it with its comment 
-//  this needs to be fixed too 
-router.get("/articles/:id", function(req, res){
-  db.Article.findOne({_id: req.params.id})
-  //  populate it with comments 
-  .populate("comment")
-  .then(function(dbArticle){
-    res.json(dbArticle);
-  })
-  //  if error, send to client 
-  .catch(function(err){
-    res.json(err);
-  })
+//  Select an article by id and populate it with its comment
+//  this needs to be fixed too
+router.get("/articles/:id", function(req, res) {
+  db.Article.findOne({ _id: req.params.id })
+    //  populate it with comments
+    .populate("comment")
+    .then(function(dbArticle) {
+      res.json(dbArticle)
+    })
+    //  if error, send to client
+    .catch(function(err) {
+      res.json(err)
+    })
 })
 
-//  post an article to the database
+console.log("API routes")
 
-//  this is already taken care of in controller folder 
-// router.post("/save", function(req, res) {
-//   //  logging req.body for debugging purposes
-//   console.log(req.body)
-//   //  insert the article into the articles collection
-//   db.news.insert(req.body, function(error, saved) {
-//     //  log errors if they occur
-//     if (error) {
-//       console.log(error)
-//     } else {
-//       //  send it to browser
-//       res.send(saved)
-//     }
-//   })
-// })
+module.exports = router
 
-//  routes for adding comments
-
-// route for deleting comments
-
-//  route for deleting saved articles
-
-// router.get("/delete/:id", function(req, res) {
-//   db.news.remove(
-//     {
-//       _id: mongojs.ObjectID(req.params.id)
-//     },
-//     function(error, removed) {
-//       //  log error
-//       if (error) {
-//         console.log(error)
-//         res.send(error)
-//       } else {
-//         //  send response to browser if successful
-//         console.log(removed)
-//         res.send(removed)
-//       }
-//     }
-//   )
-// })
-
-
-    console.log("API routes");
-
-    module.exports = router;
-  
-  
-  
-  // })
-  

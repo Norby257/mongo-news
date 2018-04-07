@@ -4,6 +4,7 @@ var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
 var request = require("request")
 var logger = require("morgan")
+var routes = require("./routes");
 
 //  dependencies for web scraping 
 var axios = require("axios"); 
@@ -37,6 +38,8 @@ app.use(
 )
 
 app.use(bodyParser.json())
+
+app.use(routes);
 
 //  setting handlebars
 

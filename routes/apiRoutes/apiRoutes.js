@@ -3,7 +3,7 @@ var express = require("express")
 
 var router = express.Router()
 
-var articleController = require("../controllers/articleController");
+var articleController = require("../../controllers/articleController");
 
 //  route for getting ALL articles from DB
 router.get("/articles", articleController.find);

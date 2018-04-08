@@ -1,6 +1,6 @@
 # mongo-news
 
-This is a full-stack web application that aggregates cyber security news. Users can save articles, add and delete comments.
+This is a full-stack web application that aggregates news from a Chicago based news agency. Users can save articles, add and delete comments.
 
 
 ## How to use 

@@ -19,7 +19,7 @@ $(document).on("click", "p", function() {
     var thisId = $(this).attr("data-id");
 
 //  start AJAX - for the specific article
-//  getting server 500 error?
+//  getting server 500 error 
 $.ajax({
     method: "GET",
     url: `/articles/${thisId}`
@@ -69,10 +69,10 @@ $.ajax({
 $("#bodyinput").val("");
 
 //  AJAX delete route for deleting a comment 
-$.ajax({
-    method: "DELETE",
-    url:  "/articles/" + thisId,
-    success: "callback function here "
-})
+// $.ajax({
+//     method: "DELETE",
+//     url:  "/articles/" + thisId,
+//     success: "callback function here "
+// })
 
 })

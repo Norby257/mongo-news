@@ -56,7 +56,7 @@ $.ajax({
     method: "POST",
     url: "/articles/" + thisId,
     data: {
-        body: $("#bodyinput").val();
+        body: $("#bodyinput").val()
     }
 })
 .then(function(data){

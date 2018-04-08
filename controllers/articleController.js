@@ -16,7 +16,7 @@ module.exports = {
     findOne: function(req, res) {
         db.Article.findOne({_id: req.params.id})
         .populate("Comment")
-        then(function(dbArticle){
+        .then(function(dbArticle){
             res.json(dbArticle);
         })
     },

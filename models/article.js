@@ -1,13 +1,11 @@
-//  Mongoose dependendencies
-
 var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var articleSchema = new Schema({
-  title: {
+  headline: {
     type: String,
-    // unique: true,
-    required: true
+    required: true,
+    unique: {index: {unique: true}}
   },
 
   link: {
@@ -15,18 +13,23 @@ var articleSchema = new Schema({
     required: true
   },
 
-  summary: String,
+  summary: {
+    type: String,
+  required: true
+  },
 
-comment: [
-  {
-    type: Schema.Types.ObjectId,
-    ref: "Comment"
-  }
-]
+date: {
+  type: Data,
+  default: Date.now
+},
+
+saved: {
+  type: Boolean,
+  default: false
+}
 
 })
 var Article = mongoose.model("Article", articleSchema)
 console.log("this is the article --------------")
-//  export
 
 module.exports = Article

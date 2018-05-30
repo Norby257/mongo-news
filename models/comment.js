@@ -3,9 +3,22 @@ var Schema = mongoose.Schema;
 
 
 var commentSchema = new Schema({
-  text: {
+
+  _articleId: {
+    type: Schema.Types.ObjectId,
+    ref: "Article"
+  },
+
+  date: {
+    type: Data,
+    date: Date.now
+  },
+
+   commentText: {
     type: String
-  }
+  },
+
+
 })
 
 var Comment = mongoose.model("Comment", commentSchema);

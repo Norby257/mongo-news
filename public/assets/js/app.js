@@ -74,5 +74,4 @@ $("#bodyinput").val("");
 //     url:  "/articles/" + thisId,
 //     success: "callback function here "
 // })
-
 })

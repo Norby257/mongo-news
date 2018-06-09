@@ -10,7 +10,7 @@ var commentSchema = new Schema({
   },
 
   date: {
-    type: Data,
+    type: Date,
     date: Date.now
   },
 

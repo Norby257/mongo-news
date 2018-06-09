@@ -19,7 +19,7 @@ var articleSchema = new Schema({
   },
 
 date: {
-  type: Data,
+  type: Date,
   default: Date.now
 },
 

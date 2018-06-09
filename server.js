@@ -54,52 +54,6 @@ mongoose.connect(MONGODB_URI, {
   // useMongoClient: true
 })
 
-// A GET REOUTE TO SCRAPE THAT WEBSITE
-
-app.get("/scrape", function(req, res) {
-  request("http://www.chicagotribune.com/", function(error, response, html) {
-    //  load into cheerio
-    var $ = cheerio.load(html)
-
-    //  get h2 within the card-compenent_description
-    $(".trb_outfit_relatedListTitle_a").each(function(i, element) {
-      // console.log(element);
-      //  saving in empty object
-      var result = {}
-      var title = $(element).text()
-      //  so fix the link part wooo!
-      var link = $(element).attr("href")
-
-      var summary = $(element)
-        .children("p")
-        .text()
-
-      //  the console.logging are for testing purposes
-      console.log(title)
-      console.log(link)
-
-      //  databse function - creating a new row in DB using the result object we had above
-      db.Article.create(
-        {
-          title: title,
-          link: link,
-          summary: summary
-        },
-        function(err, inserted) {
-          if (err) {
-            //  log it to console
-            console.log(err)
-          } else {
-            //  log inserted data
-            console.log(inserted)
-          }
-        }
-      )
-    })
-  })
-  //  if it's sucessfull, send a message so client is not waiting
-  res.send("Scrape complete!")
-})
 
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT)

@@ -1,6 +1,5 @@
 console.log("we are linked");
 //  front end file 
-
 //  get article title, link and display to page 
 $.getJSON("/articles/articles", function(data){
     //  for each article avail

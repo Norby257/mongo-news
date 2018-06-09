@@ -10,6 +10,11 @@ var scrape = function() {
     return axios.get("https://cardnotpresent.com/").then(function(res){
         var $ = cheerio.load(res.data);
         var articles = [];
+
+        //  on the website i think the articles are just li 
+        $("<li>").each(function(i, element){
+            console.log(element);
+        })
     })
 }
 
